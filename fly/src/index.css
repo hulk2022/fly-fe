@@ -1,0 +1,16 @@
+body {
+	margin: 0;
+	font-family: 'PingFang SC';
+	font-style: normal;
+	color: #171a1d;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #bfbfbf;
+}
