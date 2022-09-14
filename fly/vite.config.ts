@@ -27,6 +27,16 @@ export default defineConfig(({ mode }) => {
 				'~': resolve(__dirname, 'src'),
 			},
 		},
+		build: {
+			emptyOutDir: true,
+			rollupOptions: {
+				output: {
+					manualChunks: {
+						"arco-design": ["@arco-design/web-react"],
+					},
+				},
+			},
+		},
     esbuild: {
 			target: 'chrome78',
     },
@@ -40,8 +50,8 @@ export default defineConfig(({ mode }) => {
 				less: {
 					javascriptEnabled: true, // 支持内联 JavaScript
 					modifyVars: {
-						'primary-color': '#0089FF',
-						'link-color': '#006AFE',
+						// arcoblue-6 is the primary-color
+						"arcoblue-6": "#1DA57A",
 					},
 				},
 			},
@@ -51,12 +61,18 @@ export default defineConfig(({ mode }) => {
       createStyleImportPlugin({
 				resolves: [],
 				libs: [
+					// Dynamic import @arco-design styles
 					{
-						libraryName: 'antd',
+						libraryName: "@arco-design/web-react",
 						esModule: true,
-						resolveStyle: (name) => {
-							return `antd/es/${name}/style/index`;
-						},
+						resolveStyle: (name) =>
+							`@arco-design/web-react/es/${name}/style/index`,
+					},
+					{
+						libraryName: "@arco-design/web-react/icon",
+						libraryNameChangeCase: "pascalCase",
+						resolveStyle: (name) =>
+							`@arco-design/web-react/icon/react-icon/${name}`,
 					},
 				],
 			}),

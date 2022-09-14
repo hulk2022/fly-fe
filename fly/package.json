@@ -12,8 +12,7 @@
     "build-prod": "yarn build --mode prod"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
-    "antd": "^4.23.1",
+    "@arco-design/web-react": "^2.39.3",
     "axios": "^0.27.2",
     "moment": "^2.29.4",
     "react": "^18.2.0",

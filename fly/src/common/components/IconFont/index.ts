@@ -1,7 +1,5 @@
-import { createFromIconfontCN } from "@ant-design/icons";
+import { Icon } from "@arco-design/web-react";
 
-const IconFont = createFromIconfontCN({
-  scriptUrl: "//at.alicdn.com/t/c/font_2410575_ng394uav1c.js", // 在 iconfont.cn 上生成
-});
+const IconFont = Icon.addFromIconFontCn({ src: "//at.alicdn.com/t/c/font_2410575_ng394uav1c.js" }); 
 
 export default IconFont;
